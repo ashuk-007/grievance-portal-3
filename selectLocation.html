@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+   
+:root {
+    --main-blue: #71b7e6;
+    --main-purple: #415483;
+    --main-grey: #ccc;
+    --sub-grey: #d9d9d9;
+}
+
+
+    body {
+       background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+      /* background: linear-gradient(to bottom, #a6b8c9, #9e93a0); */
+    }
+
+    div {
+      width: 600px;
+      padding: 30px;
+      box-shadow: 0px 4px 12px rgba(12, 10, 10, 10);
+      margin: 60px auto;
+      background-color: #d3d8dc;
+      border-radius: 10px;
+    }
+
+    h1 {
+      font-size: 32px;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 30px;
+      color: #031326;
+    }
+
+    label {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #0a0202;
+    }
+
+    input[type="text"] {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #044378;
+      border-radius: 5px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #3a5f7e;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 30px;
+      /* Add the following properties to center the buttons */
+      display: block;
+      margin: 0 auto;
+    }
+
+    button:hover {
+      background-color: #22365b;
+    }
+
+    input[type="text"]:read-only {
+      background-color: #f2f2f2;
+    }
+
+  </style>
+  <title>Register Grievance</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#getDetails").click(function () {
+        var pincode = $("#pincode").val();
+        $.getJSON("https://api.postalpincode.in/pincode/" + pincode, function (data) {
+          if (data[0].Status == "Success") {
+            var state = data[0].PostOffice[0].State;
+            var district = data[0].PostOffice[0].District;
+            var tehsil = data[0].PostOffice[0].Block;
+            $("#state").val(state);
+            $("#district").val(district);
+            $("#tehsil").val(tehsil);
+          }
+          else {
+            alert("Invalid Pincode!");
+          }
+        });
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div>
+    <h1>Register Grievance</h1>
+    <label for="pincode">Enter Pincode: </label>
+    <input type="text" id="pincode" name="pincode">
+
+    <button id="getDetails">Get Details</button>
+
+    <label for="state">State: </label>
+    <input type="text" id="state" name="state" readonly>
+
+    <label for="district">District: </label>
+    <input type="text" id="district" name="district" readonly>
+
+    <label for="tehsil">Tehsil: </label>
+    <input type="text" id="tehsil" name="tehsil" readonly>
+
+    <button id="nextButton" onclick="window.location='chooseCategory.html'">Next</button>
+  </div>
+
+	
+</body>
+</html>

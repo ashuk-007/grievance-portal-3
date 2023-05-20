@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grievance Registration System</title>
+    <link rel="stylesheet" href="problemDetails.css " />
+  </head>
+  <body>
+    <div class="container">
+      <div class="title"><b>Grievence Registration System</b></div>
+      <form action="#">
+        <div class="user__details">
+          <div class="input__box">
+            <span class="details">First Name</span>
+            <input type="text" id = "box1" placeholder="Eg:Suyash" required />
+          </div>
+          <div class="input__box">
+            <span class="details">Last Name</span>
+            <input type="text" id = "box2"  placeholder="Eg:Deep"  required/>
+          </div>
+
+          <div class="input__box">
+            <span class="details">Email</span>
+            <input
+              type="text" id = "box3" 
+              placeholder="Eg:suyash2002@gmail.com"
+              required
+            />
+          </div>
+          <div class="input__box">
+            <span class="details">Phone Number</span>
+            <input
+              type="tel"
+              pattern="[0-9]{10}"
+              id = "box4" 
+              placeholder="Eg:901-464-6427"
+              required
+            />
+          </div>
+          <div class="input__box">
+            <span class="details">PinCode</span>
+            <input type="number" id = "box5"  placeholder="Eg:230051"  required/>
+          </div>
+          <div class="input__box">
+            <span class="details">Complaint On</span>
+            <input
+              type="text" id = "box6" 
+              placeholder="Name of the department of the complaint"
+              required
+            />
+          </div>
+        
+
+        <div class="single">
+          <span class="hi">Complaint Details</span>
+
+          <textarea 
+            placeholder="Describe your Complaint Briefly"
+            rows="4"
+            id = "box7" 
+            cols="90"
+            id = box7
+            required
+          ></textarea>
+        </div>
+
+        <div class="single">
+          <span class="hi">Upload</span>
+
+          <input type="file" placeholder="Uppload Proof"  />
+        </div>
+		</div>
+        <div class="button"  >
+          <button id="insert">Register</button>
+        </div>
+      </form>
+    </div>
+
+
+
+    <!-- firebase starts tushar -->
+
+   
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-analytics.js";
+      import {getDatabase, ref, get, set, child, update, remove , push} from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js" //Copy and Paste the URL from near the top of the CDN you pasted in from firebase
+            // (the one where you imported "initializeApp" from),
+            //but change "firebase-app" to "firebase-database"
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyCCgih6Wpei5ibBPOU7Kzu9Wmhdm_WH3Eg",
+        authDomain: "test1-48a0e.firebaseapp.com",
+        databaseURL: "https://test1-48a0e-default-rtdb.firebaseio.com",
+        projectId: "test1-48a0e",
+        storageBucket: "test1-48a0e.appspot.com",
+        messagingSenderId: "330793816553",
+        appId: "1:330793816553:web:72c49bc40f2e0e4e733b78",
+        measurementId: "G-2RFR9MMMK6"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+            //THIS IS WHERE YOU PASTE THE CODE TO CONNECT TO YOUR OWN DATABASE
+            //Copy and paste the CDN bit of code from your app that you created on Firebase.
+            //The script tag above is already there, so careful not to have duplicate script tags.
+            //After you've copied and pasted, just delete the unnecessary script tags. 
+       
+    
+          
+            
+    
+            const db = getDatabase();
+    
+            var box1 = document.querySelector("#box1");
+            var box2 = document.querySelector("#box2");
+            var box3 = document.querySelector("#box3");
+            var box4 = document.querySelector("#box4");
+            var box5 = document.querySelector("#box5");
+            var box6 = document.querySelector("#box6");
+            var box7 = document.querySelector("#box7");
+          
+          
+          
+    
+            var insertBtn = document.querySelector("#insert");
+            // var updateBtn = document.querySelector("#update");
+            // var removeBtn = document.querySelector("#remove");
+            // var findBtn = document.querySelector("#find");
+
+            function generateUniqueId() {
+                const timestamp = new Date().getTime().toString(); // Get current timestamp as a string
+                const randomNum = Math.floor(Math.random() * 1000000).toString(); // Generate a random number as a string
+                return `${timestamp}${randomNum}`; // Concatenate timestamp and random number to create unique ID
+              }
+
+            const ID=generateUniqueId();
+            
+            function InsertData() {
+                set(ref(db, "People/"+  ID ),{
+                    First_Name: box1.value,
+                    Last_Name: box2.value,
+                    Email: box3.value,
+                    Ph_no : box4.value,
+                    Zip_Code: box5.value,
+                    Complain_on : box6.value,
+                    Complain_about: box7.value,                   
+                    Complain_ID:ID,
+                    Status:"Pending"
+                })
+                .then(()=>{
+                    alert("complaint ID = "+ID);
+                    window.location.replace('homepage.html');
+                })
+                .catch((error)=>{
+                    alert(error);
+                    window.location.replace('homepage.html');
+                });
+            }
+    
+            // function FindData() {
+                // const dbref = ref(db);
+    
+                // get(child(dbref, "People/" + findID.value))
+                // .then((snapshot)=>{
+                //     if(snapshot.exists()){
+                //         findName.innerHTML = "Name: " + snapshot.val().Name;
+                //         findAge.innerHTML = "Age: " + snapshot.val().Age;
+                //     } else {
+                //         alert("No data found");
+                //     }
+                // })
+                // .catch((error)=>{
+                //     alert(error)
+                // })
+            // }
+    
+            // function UpdateData(){
+                // update(ref(db, "People/"+ enterID.value),{
+                //     Name: enterName.value,
+                //     Age: enterAge.value
+                // })
+                // .then(()=>{
+                //     alert("Data updated successfully");
+                // })
+                // .catch((error)=>{
+                //     alert(error);
+                // });
+            // }
+    
+            // function RemoveData(){
+            //     remove(ref(db, "People/"+ enterID.value))
+            //     .then(()=>{
+            //         alert("Data deleted successfully");
+            //     })
+            //     .catch((error)=>{
+            //         alert(error);
+            //     });
+            // }
+    
+            insertBtn.addEventListener('click', InsertData);
+            // updateBtn.addEventListener('click', UpdateData);
+            // removeBtn.addEventListener('click', RemoveData);
+            // findBtn.addEventListener('click', FindData);
+    
+          </script>
+           <script>
+            document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+          });
+          
+              </script>
+
+
+
+    <!-- firebase ends tushar -->
+  </body>
+</html>

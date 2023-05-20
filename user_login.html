@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="user_log.css" />
+</head>
+
+<body>
+  <div id="full">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <br>
+    <div class="cont">
+      <div class="form sign-in">
+        <div class="typewrite">WELCOME TO SAMADHAN!</div><br><br>
+        <div class="m">
+          <label>
+            <span>Email</span>
+            <input type="text" id="email2" name="email" placeholder="E-mail" required />
+          </label>
+        </div>
+
+        <br>
+
+        <div class="m">
+          <label>
+            <span>Password</span>
+            <input type="password" id="password2" name="password" placeholder="password" required />
+          </label>
+        </div>
+
+        <br>
+        <p class="forgot-pass">Forgot password?</p>
+        <br>
+        <a href="adminLogin.html">
+        <p class="forgot-pass">Admin Login</p>
+      </a>
+
+        <button type="button" id="login" class="submit">Login</button>
+
+      </div>
+
+      <div class="sub-cont">
+        <div class="img">
+          <div class="img__text m--up">
+            <h3>Don't have an account? Please Register!<h3>
+          </div>
+          <div class="img__text m--in">
+            <h3>If you already have an account, just Login.<h3>
+          </div>
+          <div class="img__btn">
+            <span class="m--up">Register</span>
+            <span class="m--in">Login</span>
+          </div>
+        </div>
+
+        <div class="form sign-up">
+          <div class="type_h">CREATE YOUR ACCOUNT </div>
+          <br>
+          <div class="typewrite">For SAMADHAN </div>
+
+
+          <div class="two-col">
+            <div class="col1">
+              <label>
+                <span>Name</span>
+                <input type="text" id="name" required>
+              </label>
+            </div>
+
+            <div class="col2">
+              <label>
+                <span>Email</span>
+                <input type="text" id="email" name="email" placeholder="E-mail" required />
+              </label>
+            </div>
+          </div>
+
+          <div class="two-col">
+            <div class="col1">
+              <label>
+                <span>Aadhar Number</span>
+                <input type="text" id="aadhar" placeholder="XXXX XXXX XXXX" required>
+              </label>
+            </div>
+
+            <div class="col2">
+              <label>
+                <span>Mobile Number</span>
+                <input type="tel"  id="mobile" placeholder="999-999-9999" pattern="\d{3}[\-]\d{3}[\-]\d{4}"
+                  title="Must be 999-999-999 format" required>
+              </label>
+            </div>
+          </div>
+
+          <div class="two-col">
+            <div class="col1">
+              <label>
+                <span>Set Password</span>
+                <input type="password" id="password" name="password" placeholder="password" required />
+              </label>
+            </div>
+
+            <div class="col2">
+              <label>
+                <span>Pin Code</span>
+                <input type="number" />
+              </label>
+            </div>
+
+          </div>
+
+          <div class="flexbox">
+            <div class="inputboxadress">
+              <label>
+                <span>Address</span>
+                <input type="text" />
+              </label>
+            </div>
+
+            <div class="inputboxgender">
+              <div class="flexbox">
+                <p>Gender:</p>
+                <input type="radio" name="gender" value="male"> Male
+                <input type="radio" name="gender" value="female"> Female
+              </div>
+            </div>
+          </div>
+
+          <button type="button" id="signUp" class="submit">Sign Up</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.querySelector('.img__btn').addEventListener('click', function () {
+      document.querySelector('.cont').classList.toggle('s--signup');
+    }
+    );
+  </script>
+  
+</body>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+  import { getDatabase ,set,ref} from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js";
+  import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBPShfdxIrZjiy2aO85KW8gJq3GA8i7i0s",
+    authDomain: "authentication-8f29a.firebaseapp.com",
+    databaseURL: "https://authentication-8f29a-default-rtdb.firebaseio.com",
+    projectId: "authentication-8f29a",
+    storageBucket: "authentication-8f29a.appspot.com",
+    messagingSenderId: "129732838881",
+    appId: "1:129732838881:web:879709b7da15e6232fbea0"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const database=getDatabase(app);
+  const auth = getAuth();
+
+  signUp.addEventListener('click',(e)=>{
+
+    var email=document.getElementById('email').value;
+    var password=document.getElementById('password').value;
+    var name=document.getElementById('name').value;
+    var mobile=document.getElementById('mobile').value;
+    var aadhar=document.getElementById('aadhar').value;
+
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      set(ref(database, 'users/' + user.uid),{
+        email:email,
+        name:name,
+        mobile:mobile,
+        aadhar:aadhar
+      })
+      alert('user created');
+      document.querySelector('.cont').classList.toggle('s--signup');
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(errorMessage);
+      // ..
+    });
+  });
+
+  login.addEventListener('click',(e)=>{
+    var email=document.getElementById('email').value;
+    var password=document.getElementById('password').value;
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      window.open('homepage.html');
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(errorMessage);
+    });
+  });
+</script> 
+
+</html>

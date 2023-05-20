@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    /* change the background color of the header */
+    body {
+			margin: 25px 100px;
+			padding: 0;
+			font-family: sans-serif;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		  }
+    h1 {
+      text-shadow: 12px 12px 12px #09488b57;
+      color: rgb(10, 21, 58);
+    }
+  section {
+  
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 10px 10px 100px;
+    padding: 10px;
+    		
+  }
+   button {
+      background-color: #3a5f7e;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 30px;
+      /* Add the following properties to center the buttons */
+      
+    }
+
+    button:hover {
+      background-color: #22365b;
+    }
+  /* button {
+  background-color: #3a5f7e;
+    color: #fff;
+        border-radius: 5px;
+    padding: 10px;
+    border: none;
+
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+button:hover {
+      background-color: #22365b; */
+    /* } */
+  /* Set top margin of section to 250px */
+  section {
+    margin-top: 45px;
+  }
+  
+  /* add a gradient background to the choose a category section */
+  #categories_block {
+background-color:  #d4dee8;
+    position: relative;
+  }
+  
+  /* add hover effect to cards */
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(10, 10, 10, 0.2);
+  }
+  
+  /* change the font color of the category text */
+  .card p {
+    color: #333;
+  }
+  
+  /* add a drop shadow to the category images */
+  .card img {
+    max-width: 100%;
+    border-radius: 100%;
+    transition: transform 0.5s ease-in-out;
+    width: 100px;
+    height: 100px;
+  }
+  
+  
+  /* add a border radius to the category images */
+  
+  
+  /* add a transition effect to the category images */
+  .card img {
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  /* change the font of the category text */
+  .card p {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* make the category text uppercase */
+  
+  
+  /* add a subtle box shadow to the section */
+  #mtt {
+    box-shadow: 10 10 10px rgba(0, 0, 0, 0.2);
+  }
+
+  /* make every column the same size */
+  .column {
+    flex: 1;
+  }
+</style>
+
+</head>
+
+<body style="background-color:#71b7e6">
+  <section>
+   
+    <link rel="stylesheet" href="card_corse.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monda:wght@700&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheets -->
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="login2.css">
+    <link rel="stylesheet" href="all.min.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <section class="colored-section " id="categories_block">
+      <div class="category ">
+        <h1 style="text-align: center;">Choose Category</h1><br><br>
+        <div class="row">
+          
+            <div class="column col-lg col-md col-sm">
+              <div class="card" >
+                <a href="#devlpt">
+                    <input type="radio" name="category" value="development">
+                <img src="hua.jpeg">
+                <p>Housing and Urban Affairs</p>
+
+              </div>
+            </div>
+          </a>
+
+          <div class="column col-lg col-md col-sm">
+            <div class="card">
+              <a href="#mrkt">
+                <input type="radio" name="category" value="development">
+                <img src="lae.png">
+                <p>Labour and Employment </p>
+
+            </div>
+          </div>
+          </a>
+          <div class="column col-lg col-md col-sm">
+            <div class="card">
+              <a href="#it">
+                <input type="radio" name="category" value="development">
+                <img src="pt.png">
+                <p>Personnel and Training</p>
+
+            </div>
+          </div>
+          <div class="column col-lg col-md col-sm">
+            <div class="card">
+              <a href="#it">
+                <input type="radio" name="category" value="development">
+                <img src="it.jpeg">
+                <p>Home Affairs</p>
+
+            </div>
+          </div>
+           
+          </a>
+
+        </div>
+      </div>
+      <br>
+      <div class="row">
+          
+        <div class="column col-lg col-md col-sm">
+          <div class="card" >
+            <a href="#devlpt">
+                <input type="radio" name="category" value="development">
+            <img src="fs.jpeg">
+            <p>Financial Services</p>
+
+          </div>
+        </div>
+      </a>
+
+      <div class="column col-lg col-md col-sm">
+        <div class="card">
+          <a href="#mrkt">
+            <input type="radio" name="category" value="development">
+            <img src="post.webp">
+            <p>Posts</p>
+
+        </div>
+      </div>
+      </a>
+      <div class="column col-lg col-md col-sm">
+        <div class="card">
+          <a href="#it">
+            <input type="radio" name="category" value="development">
+            <img src="tele.webp">
+            <p>Telecommunications</p>
+
+        </div>
+      </div>
+      <div class="column col-lg col-md col-sm">
+        <div class="card">
+          <a href="#it">
+            <input type="radio" name="category" value="development">
+            <img src="haax.png">
+            <p>Health Welfare</p>
+
+        </div>
+        <br>
+        <br>
+      </div>
+      
+       
+      </a>
+
+    </div>
+  </div>
+  <label style="color: rgb(0, 0, 0);" >Others:</label>
+			 <input type="text" name="" id="">
+       <br>
+       <br>
+  <button type="button" name="next" src="pro" onclick="window.location='problemDetails.html'">Next</button>
+    </section>
+
+    
+</body>
+</html>

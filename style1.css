@@ -1,0 +1,533 @@
+
+:root {
+  --main-blue: #71b7e6;
+  --main-purple: #415483;
+  --main-grey: #ccc;
+  --sub-grey: #d9d9d9;
+}
+body {
+  /* background-color: #cef0ff; */
+  /* background-image: linear-gradient(#8adbff, white); */
+  /* object-fit: cover; */
+}
+.navbar {
+  /* border:10px solid red; */
+  transform: translateY(-20px);
+
+  background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+ 
+  border-radius: 0px 0px 10px 10px;
+  /* padding-top: 26px; */
+  box-shadow: 1px 2px 4px #888888;
+  vertical-align: bottom;
+
+}
+
+.navbar {
+
+  overflow: auto;
+}
+
+.navbar li {
+  float: left;
+  list-style-type: initial;
+  margin: 12px;
+}
+
+
+.navbar li a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar ul li {
+
+  font-size: 40px;
+  list-style-type: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+
+}
+
+.navbar ul li a:active {
+  color: black;
+}
+
+
+.navbar {
+  /* your navbar styles */
+  position: relative;
+  /* make navbar container a positioned parent */
+  width: 97.vw;
+}
+
+#log {
+  font-size: 20px;
+}
+
+#log:hover {
+  color: black;
+}
+
+#log:active {
+  color: yellow;
+
+}
+
+
+
+#log {
+  float: right;
+  /* margin-left: 100px; add some margin for spacing */
+  transform: translateX(400px);
+  /* transform: translateY(20px); */
+  margin-top: 20px;
+}
+
+#log :hover {
+  color: black;
+}
+
+.vmenu {
+
+  transform: translateY(-15px);
+  border-radius: 5px 5px 5px 5px;
+  background-color:#415483 ;
+  background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+  /* border: 5px solid red ;
+             */
+  height: 100vh;
+  width: 225px;
+  transition: right 1s ease-out;
+  z-index: 1;
+  ;
+
+}
+
+.vmenu a {
+  display: block;
+  padding: 20px 10px;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+
+}
+
+.vmenu a:active {
+  color: black;
+}
+
+#add:active {
+  color: black;
+}
+
+#add {
+  background-color: #415483;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  font-size: 45px;
+}
+
+.vmenu a:hover {
+  background-color:#5a7097;
+  color: white;
+}
+
+#dash:active {
+  color: black;
+}
+
+#griev:active {
+  color: black;
+}
+
+#set:active {
+  color: black;
+}
+
+#logout:active {
+  color: black;
+}
+
+#acc:active {
+  color: black;
+}
+
+#note:active {
+  color: black;
+}
+
+.bigbox {
+  display: flex;
+  /* border: 10px solid brown; */
+}
+
+.maincenter {
+
+  /* border: 5px solid red; */
+  display: flex;
+  flex-direction: column;
+  /* transform: translateY(-100px); */
+  height: 100vh;
+  width: 100vw;
+
+  background-color: rgb(238, 234, 234);
+  border-radius: 10px 10px;
+
+}
+
+#myInput {
+
+  background-image: url('test1.png');
+  /* Add a search icon to input */
+  background-position: 10px 12px;
+  /* Position the search icon */
+  background-repeat: no-repeat;
+  /* Do not repeat the icon image */
+  width: 200px;
+  /* Full-width */
+  font-size: 16px;
+  /* Increase font-size */
+  padding: 12px 20px 12px 40px;
+  /* Add some padding */
+  border: 1px solid #ddd;
+  /*Add a grey border */
+  margin-bottom: 25px;
+  margin-top: 10px;
+  margin-left: 100px;
+  border-radius: 10px;
+
+
+
+}
+
+#myTable {
+
+  border-collapse: collapse;
+  /* Collapse borders */
+  width: 90%;
+  /* Full-width */
+  border: 1px solid #ddd;
+  /* Add a grey border */
+  font-size: 14px;
+  /* Increase font-size */
+  margin-left: 40px;
+  margin-top: 2px;
+
+  /* background-position: 10px 40px; */
+}
+
+#myTable th,
+#myTable td {
+  text-align: left;
+  /* Left-align text */
+  padding: 12px;
+  /* Add padding */
+}
+
+#myTable tr {
+  /* Add a bottom border to all table rows */
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header,
+#myTable tr:hover {
+  /* Add a grey background color to the table header and on hover */
+  background-color: rgb(241, 241, 241);
+}
+
+#myTable tr,
+td {
+  border: 1px solid black;
+}
+
+table {
+  /* border: 3px solid black; */
+  margin-top: 250px;
+  margin-left: 100px;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #d7a5a5;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #b2b2b2;
+}
+
+.header th {
+  background-color: rgb(16, 16, 55);
+  color: white;
+}
+
+
+.dropbtn {
+
+  display: flex;
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+
+  margin-top: 20px;
+  margin-left: auto;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  /* border: 4px solid black; */
+  /* position: fixed; */
+  display: flex;
+  height: 10px;
+  margin-top: 10px;
+  margin-left: 100px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #f1f1f1
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+
+
+#btns {
+  border: none;
+  display: flex;
+  right: 700px;
+  bottom: 300px;
+  justify-content: space-evenly;
+  height: 40px;
+  width: 200px;
+  margin-right: 10px;
+
+}
+
+.buttons {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 150px;
+  margin-left: 700px;
+  /* align-items: flex-end; */
+}
+
+.buttons #one,
+#two,
+#three,
+#four {
+  border: none;
+  /* box-shadow: 1px 2px 4px #888888; */
+}
+
+.buttons #one a {
+  border: none;
+  text-decoration: none;
+  padding: 10px 10px;
+  border-radius: 3px;
+  color: white;
+  background-color: #4c7aa0;
+  /* box-shadow: 1px 2px 4px #888888; */
+}
+
+.buttons #one a:hover {
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border: none;
+  text-decoration: none;
+  padding: 10px 10px;
+  border-radius: 3px;
+  color: white;
+  background-color: #71b7e6;
+  /* box-shadow: 1px 2px 4px #888888; */
+}
+
+.buttons #two a {
+
+  border: none;
+  text-decoration: none;
+  padding: 10px 10px;
+  border-radius: 3px;
+  background-color:#4c7aa0;
+  color: white;
+
+  /* box-shadow: 1px 2px 4px #888888; */
+}
+
+.buttons #two a:hover {
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border: none;
+  text-decoration: none;
+  padding: 10px 10px;
+  border-radius: 3px;
+  color: white;
+  background-color:#71b7e6;
+
+  /* box-shadow: 1px 2px 4px #888888; */
+}
+
+.buttons #three a {
+  border: none;
+  text-decoration: none;
+  padding: 10px 10px;
+  border-radius: 3px;
+  color: white;
+  background-color:#4c7aa0;
+  /* box-shadow: 1px 2px 4px #888888; */
+}
+
+.buttons #three a:hover {
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border: none;
+  text-decoration: none;
+  padding: 10px 10px;
+  border-radius: 3px;
+  color: white;
+  background-color:#71b7e6;
+  /* box-shadow: 1px 2px 4px #888888; */
+}
+
+.buttons #four a {
+  border: none;
+  text-decoration: none;
+  padding: 10px 10px;
+  border-radius: 3px;
+  color: white;
+  background-color: #4c7aa0;
+}
+
+.buttons #four a:hover {
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border: none;
+  text-decoration: none;
+  padding: 10px 10px;
+  border-radius: 3px;
+  color: white;
+  background-color: #71b7e6;
+}
+
+#on a {
+  font-size: medium;
+  border: none;
+  text-decoration: none;
+  border-radius: 3px;
+  background-color: #51a7b6;
+  color: black;
+  height: 30px;
+  width: 60px;
+  padding: 10px 20px;
+}
+
+#twoo a {
+  font-size: medium;
+  border: none;
+  text-decoration: none;
+  border-radius: 3px;
+  background-color:#51a7b6;
+  color: black;
+  width: 60px;
+  padding: 10px 20px;
+}
+
+#threee a {
+  font-size: medium;
+  border: none;
+  text-decoration: none;
+  border-radius: 3px;
+  background-color:#51a7b6;
+  color: black;
+  height: 30px;
+  width: 60px;
+  padding: 10px 20px;
+}
+
+#fourr a {
+  font-size: medium;
+  border: none;
+  text-decoration: none;
+  border-radius: 3px;
+  background-color: #51a7b6;
+  color: black;
+  height: 30px;
+  width: 60px;
+  padding: 10px 20px;
+}
+
+#on a:hover {
+  border: none;
+  text-decoration: none;
+  border-radius: 3px;
+  color: rgb(9, 9, 9);
+  background-color: rgb(188, 196, 196);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  height: 30px;
+  width: 60px;
+}
+
+#twoo a:hover {
+  border: none;
+  text-decoration: none;
+  border-radius: 3px;
+  color: rgb(9, 9, 9);
+  background-color: rgb(188, 196, 196);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  height: 30px;
+  width: 60px;
+}
+
+#threee a:hover {
+  border: none;
+  text-decoration: none;
+  border-radius: 3px;
+  color: rgb(9, 9, 9);
+  background-color:rgb(188, 196, 196);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  height: 30px;
+  width: 60px;
+}
+
+#fourr a:hover {
+  border: none;
+  text-decoration: none;
+  border-radius: 3px;
+  color: rgb(9, 9, 9);
+  background-color:rgb(188, 196, 196);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  height: 30px;
+  width: 60px;
+}

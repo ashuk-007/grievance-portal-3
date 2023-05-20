@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADMIN LOGIN PAGE</title>
+  <link rel="stylesheet" href="style1.css">
+
+</head>
+
+<script>
+  function myFunction() {
+
+    var input, filter, table, tr, td, i, j, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+
+    // Loop through all table rows, and hide those that don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      var match = false;
+      // Loop through all cells in the current row
+      for (j = 0; j < tr[i].cells.length; j++) {
+        td = tr[i].cells[j];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            // If a match is found, mark the row as a match and break out of the loop
+            match = true;
+            break;
+          }
+        }
+      }
+      // Set the display property of the row based on whether a match was found
+      if (match) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+
+
+</script>
+
+
+<body>
+
+  <div class="navbar">
+    <ul>
+      <li><a href="#">SAMADHAN</a></li>
+      <li><a href="#" id="log">Logout</a></li>
+
+
+
+
+    </ul>
+  </div>
+
+  <div class="bigbox">
+
+
+
+    <div class="vmenu">
+
+
+
+      <a href="#" id="add">ADMIN</a>
+      <a href="#" id="dash">DASHBOARD</a>
+      <a href="#" id="griev">VIEW ALL GRIEVANCE REQUESTS</a>
+      <a href="#" id="note">NOTIFICATIONS</a>
+      <a href="#" id="acc">MY ACCOUNT</a>
+      <a href="#" id="set">SETTINGS</a>
+      <a href="#" id="logout">LOG OUT</a>
+    </div>
+
+    <div class="maincenter">
+
+      <div class="buttons" id="btns">
+        <button id="one"><a href="#"> COPY</a> </button>
+        <button id="two"> <a href="#"> EXCEL</a></button>
+        <button id="three"> <a href="#"> PDF</a></button>
+        <button id="four"> <a href="#"> PRINT</a></button>
+      </div>
+
+
+      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="    Search for Names ">
+
+      <table id="myTable">
+        <tr class="header">
+          <th style="width:5%;">S.NO.</th>
+          <th style="width:15%;">Complaint Id</th>
+          <th style="width:15%;">Name</th>
+          <th style="width:15%;">State</th>
+          <th style="width:15%;">City</th>
+          <th style="width:15%;">District</th>
+          <th style="width:15%;">Tehsil</th>
+          <th style="width:35%;">Department</th>
+          <th style="width:10%;">From</th>
+          <th style="width:10%;">Status</th>
+          <th style="width:10%;">View Complaint</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>1001101</td>
+          <td>Jay</td>
+          <td>Haryana</td>
+          <td>Jhajjar</td>
+          <td>Jhajjar</td>
+          <td>Matenhail</td>
+          <td>Water</td>
+          <td>23/02/2023</td>
+          <td>Cleared</td>
+          <td>
+
+            <div id="on">
+              <a href="#">VIEW</a>
+            </div>
+
+
+          </td>
+
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>1001102</td>
+          <td>Suyash</td>
+          <td>Uttar Pradesh</td>
+          <td>Lucknow</td>
+          <td>Lucknow</td>
+          <td>Lucknow</td>
+          <td>Health Care</td>
+          <td>23/02/2023</td>
+          <td>Pending</td>
+          <td>
+            <div id="twoo">
+              <a href="#">VIEW</a>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>1001103</td>
+          <td>Aastha</td>
+          <td>Indore</td>
+          <td>Indore</td>
+          <td>Indore</td>
+          <td>Indore</td>
+          <td>Electrical</td>
+          <td>21/02/2023</td>
+          <td>Pending</td>
+          <td>
+            <div id="threee">
+              <a href="#">VIEW</a>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>1001104</td>
+          <td>Jyothsna</td>
+          <td>Andhra Pradesh</td>
+          <td>Vishakhapatnam</td>
+          <td>Vishakhapatnam</td>
+          <td>Devarapalli</td>
+          <td>Municipal</td>
+          <td>25/02/2023</td>
+          <td>Pending</td>
+          <td>
+
+            <div id="fourr">
+              <a href="#">VIEW</a>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>1001105</td>
+          <td>Tushar</td>
+          <td>Uttarakhand</td>
+          <td>Dehradun</td>
+          <td>Dehradun</td>
+          <td>Doiwala</td>
+          <td>Health Care</td>
+          <td>19/02/2023</td>
+          <td>Pending</td>
+          <td>
+
+            <div id="fourr">
+              <a href="#">VIEW</a>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  </div>
+  </div>
+
+
+
+
+</body>
+
+</html>

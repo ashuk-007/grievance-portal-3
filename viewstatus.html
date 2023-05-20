@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+    --main-blue: #71b7e6;
+    --main-purple: #415483;
+    --main-grey: #ccc;
+    --sub-grey: #d9d9d9;
+}
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+     
+    }
+
+    input[type=text],
+    input[type=password] {
+      display: inline-block;
+      color: #000000;
+    }
+
+    form {
+      border: none;
+      background-color: #abbcc7;
+      padding: 20px;
+      margin: 0 auto;
+      width: 60%;
+      box-shadow: 10px 20px 10px rgba(0, 0, 0, 0.3);
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease-out;
+      border-radius: 20px;
+      text-align: center;
+      align-items: center;
+
+    }
+
+    form:hover {
+      transform: rotateY(10deg) scale(1.05);
+    }
+
+    input[type=text],
+    input[type=password] {
+      width: 70%;
+      padding: 14px 20px;
+      margin-top: 20px;
+      margin-right: 9px;
+
+      border-radius: 10px;
+      background-color: #e1e8eb;
+      text-align: center;
+      position: relative;
+      box-shadow: 7px 7px 6px rgba(0, 0, 0, 0.3);
+
+    }
+
+    button {
+      background-color: #3a5f7e;
+      color: white;
+      padding: 12px 20px;
+      margin: 8px 0;
+      border: 25px;
+      cursor: pointer;
+      width: 50%;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      box-shadow: 7px 7px 6px rgba(0, 0, 0, 0.3);
+    
+      margin-right: 9px;
+      margin-top: 15px;
+        transition: background-color 0.3s ease;
+
+    }
+
+    button:hover {
+      opacity: 0.8;
+      position: relative;
+      background-color:  #22365b;;
+      text-align: center;
+    }
+
+    .imgcontainer {
+      text-align: center;
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    img.avatar {
+      width: 40%;
+      border-radius: 50%;
+      box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .container {
+      text-align: center;
+      position: relative;
+      text-shadow: 2px 2px 5px rgba(28, 176, 107, 0.3);
+    }
+
+    h2 {
+      text-align: center;
+    color: #031326;
+      font-size: 36px;
+      text-shadow: 12px 12px 5px rgba(2, 53, 29, 0.3);
+    }
+
+    label {
+      font-size: 30px;
+      color: #090328;
+      text-shadow: 2px 12px 5px rgba(2, 53, 29, 0.3);
+    }
+
+    @media screen and (max-width: 768px) {
+      form {
+        width: 80%;
+      }
+    }
+
+    @media screen and (max-width: 576px) {
+      form {
+        width: 90%;
+      }
+
+      img.avatar {
+        width: 60%;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+    }
+
+    @media screen and (max-width: 414px) {
+      form {
+        width: 100%;
+      }
+
+      img.avatar {
+        width: 70%;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>View status of your Grievance</h2>
+
+  <form  method="post">
+    <div class="imgcontainer">
+      <img src="images.jpg" alt="Avatar" class="avatar">
+    </div>
+    <div class="container">
+      <label for="uname"><b>Grievance-ID</br></label>
+      <input type="text" id="findID" placeholder="Enter Grievance-ID" name="uname" required>
+
+      <button type="submit" id="find">Submit</button>
+    </div>
+  </form>
+
+ <h3 id="fname" type="text"></h3>
+ <h3 id="lname" type="text"></h3>
+ <h3 id="email" type="text"></h3>
+ <h3 id="mobile" type="text"></h3>
+ <h3 id="pincode" type="text"></h3>
+ <h3 id="complaint_on" type="text"></h3>
+ <h3 id="complaint_about" type="text"></h3>
+ <h3 id="status" type="text"></h3>
+
+  <!-- <input type="text" id="fname"> -->
+  <!-- <input type="text" id="email"> -->
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-analytics.js";
+    import {getDatabase, ref, get, set, child, update, remove , push} from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js" //Copy and Paste the URL from near the top of the CDN you pasted in from firebase
+          // (the one where you imported "initializeApp" from),
+          //but change "firebase-app" to "firebase-database"
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyCCgih6Wpei5ibBPOU7Kzu9Wmhdm_WH3Eg",
+      authDomain: "test1-48a0e.firebaseapp.com",
+      databaseURL: "https://test1-48a0e-default-rtdb.firebaseio.com",
+      projectId: "test1-48a0e",
+      storageBucket: "test1-48a0e.appspot.com",
+      messagingSenderId: "330793816553",
+      appId: "1:330793816553:web:72c49bc40f2e0e4e733b78",
+      measurementId: "G-2RFR9MMMK6"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+          //THIS IS WHERE YOU PASTE THE CODE TO CONNECT TO YOUR OWN DATABASE
+          //Copy and paste the CDN bit of code from your app that you created on Firebase.
+          //The script tag above is already there, so careful not to have duplicate script tags.
+          //After you've copied and pasted, just delete the unnecessary script tags. 
+     
+  
+        
+          
+  
+          const db = getDatabase();
+
+          var findBtn = document.querySelector("#find");
+          var findID=document.querySelector('#findID');
+          var fname=document.querySelector('#fname');
+          var emaill=document.querySelector('#email');
+          var lname=document.querySelector('#lname');
+          var mobile=document.querySelector('#mobile');
+          var pincode=document.querySelector('#pincode');
+          var complaint_on=document.querySelector('#complaint_on');
+          var complaint_about=document.querySelector('#complaint_about');
+          var status=document.querySelector('#status');
+
+  
+          function FindData() {
+              const dbref = ref(db);
+  
+              get(child(dbref, "People/" + findID.value))
+              .then((snapshot)=>{
+                  if(snapshot.exists()){
+                      fname.innerHTML = "First_Name: "+snapshot.val().First_Name;
+                      lname.innerHTML = "Lat_Name: "+snapshot.val().Last_Name;
+                      emaill.innerHTML = "email: "+snapshot.val().Email;
+                      pincode.innerHTML = "Pincode: "+snapshot.val().Zip_Code;
+                      mobile.innerHTML = "Ph No.: "+snapshot.val().Ph_no;
+                      complaint_on.innerHTML = "complaint_on: "+snapshot.val().Complain_on;
+                      complaint_about.innerHTML = "complaint_about: "+snapshot.val().Complain_about;
+                      status.innerHTML="Status: "+snapshot.val().Status;
+
+                  } else {
+                      alert("No data found");
+                  }
+              })
+              .catch((error)=>{
+                  alert(error)
+              })
+          }
+
+          findBtn.addEventListener('click', FindData);
+  
+        </script>
+         <script>
+          document.querySelector('form').addEventListener('submit', function(event) {
+          event.preventDefault();
+        });
+        
+            </script>
+
+
+
+  <!-- firebase ends tushar -->
+  </body>
+  </html>
