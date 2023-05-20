@@ -12,7 +12,7 @@ Technologies Used
 Frontend: HTML, CSS, JavaScript
 Backend: Firebase Database
 Setup Instructions
-Clone the repository: git clone https://github.com/your-username/grievance-portal.git
+Clone the repository: git clone (https://github.com/ashuk-007/grievance-portal-3)
 Navigate to the project directory: cd grievance-portal
 Open the project in your preferred code editor.
 Ensure you have a Firebase account and have set up a Firebase project.
